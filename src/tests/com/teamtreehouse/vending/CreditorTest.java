@@ -1,14 +1,21 @@
 package com.teamtreehouse.vending;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class CreditorTest {
 
+    private Creditor creditor;
+
+    @Before
+    public void setUp() throws Exception {
+        creditor = new Creditor();
+    }
+
     @Test
     public void addingFundsIncrementsAvailableFunds() {
-        Creditor creditor = new Creditor();
 
         creditor.addFunds(25);
         creditor.addFunds(25);
@@ -18,7 +25,6 @@ public class CreditorTest {
 
     @Test
     public void refundingReturnsAllAvailableFunds() {
-        Creditor creditor = new Creditor();
         creditor.addFunds(10);
 
         int refund = creditor.refund();
@@ -28,7 +34,6 @@ public class CreditorTest {
 
     @Test
     public void refundingResetsAvailableFundsToZero() {
-        Creditor creditor = new Creditor();
         creditor.addFunds(10);
 
         creditor.refund();
