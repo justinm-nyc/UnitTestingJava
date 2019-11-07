@@ -18,5 +18,24 @@ public class CreditorTest {
 
     @Test
     public void refundingReturnsAllAvailableFunds() {
+        Creditor creditor = new Creditor();
+        creditor.addFunds(10);
+
+        int refund = creditor.refund();
+
+        assertEquals(10, refund);
     }
+
+    @Test
+    public void refundingResetsAvailableFundsToZero() {
+        Creditor creditor = new Creditor();
+        creditor.addFunds(10);
+
+        creditor.refund();
+
+        assertEquals(0, creditor.getAvailableFunds());
+    }
+
 }
+
+
